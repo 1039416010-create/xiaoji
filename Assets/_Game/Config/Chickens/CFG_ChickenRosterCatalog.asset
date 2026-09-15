@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cc3e4a3ea879d478dfead71d5c3987, type: 3}
+  m_Name: CFG_ChickenRosterCatalog
+  m_EditorClassIdentifier: GroundChickenKing.Runtime::GroundChickenKing.Chickens.ChickenRosterCatalogConfig
+  _definitions:
+  - {fileID: 11400000, guid: ccd94272bc1bb9d40bb33c144b316ceb, type: 2}
+  - {fileID: 11400000, guid: ed0bf95e3f24d5f459c80dabc4ef2a66, type: 2}
+  - {fileID: 11400000, guid: e05af92bcda18aa47ab4c8087e5ba308, type: 2}
+  - {fileID: 11400000, guid: eeb2b609a5455a843b7274685f5b44f1, type: 2}
+  - {fileID: 11400000, guid: c6061fa6a3447114f9e3283d28871aa8, type: 2}
+  - {fileID: 11400000, guid: 8b43800ce6c087e41a59175d787ecc37, type: 2}
+  - {fileID: 11400000, guid: 1deb994395549694cb39158a9f37e7fe, type: 2}
+  - {fileID: 11400000, guid: b865433f3a03680499058c523fdcba2c, type: 2}
+  - {fileID: 11400000, guid: b234d7d19566d0b4fa12635b4e4dc1d3, type: 2}
+  - {fileID: 11400000, guid: 484fa30e114c5a74aa1254f1a42d7f41, type: 2}
+  - {fileID: 11400000, guid: 9d4c8ad32a88b2246bca5b53bfe74043, type: 2}
+  - {fileID: 11400000, guid: c4315fe0c4223e44ba6f9545167ac6e0, type: 2}
+  - {fileID: 11400000, guid: f9dbc1988e6c8054fa10a9dba67e3288, type: 2}

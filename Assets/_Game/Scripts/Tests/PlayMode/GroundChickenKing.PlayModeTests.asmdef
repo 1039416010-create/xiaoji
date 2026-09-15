@@ -1,0 +1,17 @@
+{
+  "name": "GroundChickenKing.PlayModeTests",
+  "rootNamespace": "GroundChickenKing.Tests.PlayMode",
+  "references": [
+    "GroundChickenKing.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": ["TestAssemblies"]
+}

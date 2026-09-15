@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a203248ce6d9d9248ae38f2168b7a2bf, type: 3}
+  m_Name: CFG_GameRules_Default
+  m_EditorClassIdentifier: GroundChickenKing.Runtime::GroundChickenKing.Core.GameRulesConfig
+  _initialCoins: 50
+  _allowedBets: 01000000050000000a000000
+  _minimumPlayers: 1
+  _maximumPlayers: 4
+  _maximumRounds: 20
+  _stateTimeoutSeconds: 30

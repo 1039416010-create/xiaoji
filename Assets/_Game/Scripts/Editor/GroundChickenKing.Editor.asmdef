@@ -1,0 +1,19 @@
+{
+  "name": "GroundChickenKing.Editor",
+  "rootNamespace": "GroundChickenKing.Editor",
+  "references": [
+    "GroundChickenKing.Runtime",
+    "Unity.InputSystem",
+    "Unity.RenderPipelines.Universal.Runtime",
+    "Unity.ugui"
+  ],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

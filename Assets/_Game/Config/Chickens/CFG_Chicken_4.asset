@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079e9ab7700e1fc4480b12e89474446c, type: 3}
+  m_Name: CFG_Chicken_4
+  m_EditorClassIdentifier: GroundChickenKing.Runtime::GroundChickenKing.Chickens.ChickenDefinition
+  _stableId: chicken-bro
+  _displayName: "\u9E21\u54E5"
+  _personalityTag: "\u597D\u6597\u578B"
+  _prefab: {fileID: 6190903655102600740, guid: 652d81a60c4499449aefd3b1189fd55a, type: 3}
+  _bodyColor: {r: 0.86, g: 0.28, b: 0.24, a: 1}
+  _bodyScale: {x: 1.08, y: 1.08}
+  _supportsSprint: 1
+  _supportsFall: 1
+  _supportsTurn: 1
+  _supportsInterfere: 1

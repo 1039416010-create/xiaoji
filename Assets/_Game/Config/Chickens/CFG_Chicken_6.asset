@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079e9ab7700e1fc4480b12e89474446c, type: 3}
+  m_Name: CFG_Chicken_6
+  m_EditorClassIdentifier: GroundChickenKing.Runtime::GroundChickenKing.Chickens.ChickenDefinition
+  _stableId: chicken-thunder
+  _displayName: "\u96F7\u9E23\u9E21"
+  _personalityTag: "\u6311\u6218\u8005"
+  _prefab: {fileID: 7152239916336562895, guid: daf18b004d34cf54a9b22597944380d3, type: 3}
+  _bodyColor: {r: 0.95, g: 0.6042, b: 0.285, a: 1}
+  _bodyScale: {x: 0.85, y: 0.85}
+  _supportsSprint: 1
+  _supportsFall: 1
+  _supportsTurn: 1
+  _supportsInterfere: 1

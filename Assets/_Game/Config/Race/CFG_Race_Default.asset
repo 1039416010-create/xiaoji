@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf2970801b8e8e43916c7820103916d, type: 3}
+  m_Name: CFG_Race_Default
+  m_EditorClassIdentifier: GroundChickenKing.Runtime::GroundChickenKing.Core.RaceConfig
+  _laneCount: 5
+  _startProgress: 0
+  _finishProgress: 1
+  _minimumRaceDurationSeconds: 12
+  _maximumRaceDurationSeconds: 30
+  _minimumSpeed: 0.02
+  _maximumSpeed: 0.25
+  _minimumEventIntervalSeconds: 0.5
+  _finishTolerance: 0.002
+  _generationRetryLimit: 20
+  _hardTimeoutSeconds: 40
