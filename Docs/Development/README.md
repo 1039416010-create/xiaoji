@@ -21,6 +21,7 @@
 | Phase 06 | 结算、换鸡与连局 | 派彩、冠军留场、败者替换、金币继承 |
 | Phase 07 | 完整 UI、音频与展项运维 | 主菜单到 GameOver 全触控闭环 |
 | Phase 08 | 硬件、压力测试与发布 | 红外多点触控实机验收及 Windows Release |
+| Phase 09 | 场景、美术、UI 与角色表现 | GPT 生成美术接入并完成可展示视觉版本 |
 
 ## 阶段执行模板
 
@@ -45,9 +46,9 @@ Project Baseline
   -> Settlement + Roster Loop
   -> Full UX + Operations
   -> Hardware Validation + Release
+  -> Art Direction + Scene Polish
 ```
 
 ## 决策记录
 
 架构或规则发生实质变化时，在 `Docs/Development/Decisions/` 新增 ADR，至少写明背景、决定、替代方案、后果与日期。不得仅在代码注释中改变产品规则。
-
