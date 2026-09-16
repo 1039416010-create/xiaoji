@@ -33,6 +33,7 @@ namespace GroundChickenKing.Chickens
         public bool UsesRootMotion => _animator != null && _animator.applyRootMotion;
         public RaceEventType? ActiveEventType => _activeEventType;
         public int? ActiveEventTargetLane => _activeEventTargetLane;
+        public float ActiveEventPhase { get; private set; }
 
         public void Configure(string chickenId, int laneIndex, RectTransform motionRoot, Transform visualRoot, Animator animator, float startX, float finishX, float laneY)
         {
@@ -53,7 +54,7 @@ namespace GroundChickenKing.Chickens
         {
             if (plan == null) throw new ArgumentNullException(nameof(plan));
             if (plan.ChickenId != _chickenId || plan.LaneIndex != _laneIndex) throw new ArgumentException("Chicken plan identity or lane does not match controller.", nameof(plan));
-            _plan = plan; _elapsed = 0f; _activeEventIndex = -1; _activeEventType = null; _activeEventTargetLane = null; _pairedInterferenceActive = false; _isPlaying = true;
+            _plan = plan; _elapsed = 0f; _activeEventIndex = -1; _activeEventType = null; _activeEventTargetLane = null; ActiveEventPhase = 0f; _pairedInterferenceActive = false; _isPlaying = true;
             SetProgress(plan.Segments[0].StartProgress); SetState(ChickenVisualState.Run);
         }
 
@@ -83,12 +84,12 @@ namespace GroundChickenKing.Chickens
 
         public void Cancel()
         {
-            _isPlaying = false; _plan = null; _activeEventIndex = -1; _activeEventType = null; _activeEventTargetLane = null; _pairedInterferenceActive = false; SetState(ChickenVisualState.Idle); RestoreVisualPose();
+            _isPlaying = false; _plan = null; _activeEventIndex = -1; _activeEventType = null; _activeEventTargetLane = null; ActiveEventPhase = 0f; _pairedInterferenceActive = false; SetState(ChickenVisualState.Idle); RestoreVisualPose();
         }
 
         public void ResetToStart()
         {
-            _isPlaying = false; _plan = null; _elapsed = 0f; _activeEventIndex = -1; _activeEventType = null; _activeEventTargetLane = null; _pairedInterferenceActive = false; SetProgress(0f); SetState(ChickenVisualState.Idle); RestoreVisualPose();
+            _isPlaying = false; _plan = null; _elapsed = 0f; _activeEventIndex = -1; _activeEventType = null; _activeEventTargetLane = null; ActiveEventPhase = 0f; _pairedInterferenceActive = false; SetProgress(0f); SetState(ChickenVisualState.Idle); RestoreVisualPose();
         }
 
         public void ForceSafeCompletion()
@@ -138,12 +139,19 @@ namespace GroundChickenKing.Chickens
             var found = -1;
             for (var i = 0; i < _plan.Events.Count; i++)
                 if (_elapsed >= _plan.Events[i].StartTime && _elapsed < _plan.Events[i].EndTime) { found = i; break; }
-            if (found == _activeEventIndex) { ApplyFallbackPose(found); return; }
+            ActiveEventPhase = found < 0 ? 0f : Mathf.InverseLerp(_plan.Events[found].StartTime, _plan.Events[found].EndTime, _elapsed);
+            if (found == _activeEventIndex)
+            {
+                if (found >= 0 && _plan.Events[found].Type == RaceEventType.Trip)
+                    SetState(ActiveEventPhase < 0.52f ? ChickenVisualState.Fall : ChickenVisualState.Recover);
+                ApplyFallbackPose(found);
+                return;
+            }
             _activeEventIndex = found;
             _activeEventType = found < 0 ? null : _plan.Events[found].Type;
             _activeEventTargetLane = found < 0 ? null : _plan.Events[found].TargetLane;
             if (_pairedInterferenceActive) return;
-            SetState(found < 0 ? ChickenVisualState.Run : Map(_plan.Events[found].Type));
+            SetState(found < 0 ? ChickenVisualState.Run : _plan.Events[found].Type == RaceEventType.Trip && ActiveEventPhase >= 0.52f ? ChickenVisualState.Recover : Map(_plan.Events[found].Type));
             RestoreVisualPose(); ApplyFallbackPose(found);
         }
 

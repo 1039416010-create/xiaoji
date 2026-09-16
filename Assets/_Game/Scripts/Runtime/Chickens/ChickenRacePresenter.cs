@@ -9,9 +9,15 @@ namespace GroundChickenKing.Chickens
     public sealed class ChickenRacePresenter : MonoBehaviour
     {
         [SerializeField] private ChickenController[] _controllers;
+        [SerializeField] private Chicken3DStage _immersiveStage;
         private RacePlan _plan;
         public int ControllerCount => _controllers?.Length ?? 0;
         public void Configure(ChickenController[] controllers) => _controllers = controllers;
+        public void ConfigureImmersiveStage(Chicken3DStage immersiveStage)
+        {
+            _immersiveStage = immersiveStage;
+            _immersiveStage?.BindControllers(_controllers);
+        }
         public void BindPlan(RacePlan plan)
         {
             _plan = plan ?? throw new ArgumentNullException(nameof(plan));
@@ -33,8 +39,12 @@ namespace GroundChickenKing.Chickens
         {
             if (roster == null || roster.Count != 5) throw new ArgumentException("Exactly five roster IDs are required.", nameof(roster));
             for (var lane = 0; lane < _controllers.Length; lane++) { _controllers[lane].ResetToStart(); _controllers[lane].AssignIdentity(roster[lane]); }
+            _immersiveStage?.SetRoster(roster);
             _plan = null;
         }
+
+        public void ShowSettlement(string championId) => _immersiveStage?.ShowSettlement(championId);
+        public void ClearSettlement() => _immersiveStage?.ClearSettlement();
 
         private void LateUpdate() => RefreshPairedInterference();
 

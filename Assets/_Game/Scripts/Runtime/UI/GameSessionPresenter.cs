@@ -48,6 +48,7 @@ namespace GroundChickenKing.UI
         [SerializeField] private Button _gameOverMainMenuButton;
         [SerializeField] private ConfirmationDialog _confirmationDialog;
         [SerializeField] private ExhibitAudioController _audio;
+        [SerializeField] private SettlementCelebrationView _settlementCelebration;
 
         private PlayerManager _players;
         private GameFlowController _flow;
@@ -83,6 +84,11 @@ namespace GroundChickenKing.UI
         public void ConfigureOperations(ConfirmationDialog confirmationDialog, ExhibitAudioController audio)
         {
             _confirmationDialog = confirmationDialog; _audio = audio;
+        }
+
+        public void ConfigureImmersivePresentation(SettlementCelebrationView settlementCelebration)
+        {
+            _settlementCelebration = settlementCelebration;
         }
 
         public void ApplyMaximumRounds(int maximumRounds) => _runtimeMaximumRounds = Mathf.Clamp(maximumRounds, 1, 50);
@@ -231,6 +237,7 @@ namespace GroundChickenKing.UI
         private void HandleStartGame()
         {
             _round = 1; _gameOverReason = GameOverReason.None; _lastSettlement = null; _lastRaceResult = null;
+            _settlementCelebration?.Clear(); _racePresentation?.ClearSettlement();
             _rosterService.Reset(InitialChickenIds); _racePresentation?.ApplyRoster(_rosterService.CurrentRoster);
             _settlementService = new SettlementService(_players);
             _raceDirector = new RaceDirector(_rosterService.CurrentRoster, RaceRules.FromConfig(_raceConfig));
@@ -247,6 +254,8 @@ namespace GroundChickenKing.UI
             if (_flow.ReturnToMainMenu())
             {
                 _racePresentation?.CancelAll();
+                _racePresentation?.ClearSettlement();
+                _settlementCelebration?.Clear();
                 _players.ClearAll();
             }
         }
@@ -344,6 +353,10 @@ namespace GroundChickenKing.UI
                 foreach (var detail in _lastSettlement.Details)
                     GameLog.Info("Settlement", $"seat={detail.Seat} target={detail.ChickenId} stake={detail.Stake} win={detail.DidWin} return={detail.ReturnAmount} balance={detail.BalanceAfter}", round: _round);
             _audio?.PlaySettlement();
+            var championName = DisplayName(_lastSettlement.ChampionId);
+            var loserNames = _rosterService.CurrentRoster.Where(id => id != _lastSettlement.ChampionId).Select(DisplayName);
+            _racePresentation?.ShowSettlement(_lastSettlement.ChampionId);
+            _settlementCelebration?.Present(championName, string.Join("、", loserNames));
             RefreshAll();
         }
 
@@ -352,6 +365,7 @@ namespace GroundChickenKing.UI
             if (_flow.CurrentState != GameFlowState.Settlement || _lastSettlement == null) return;
             _gameOverReason = SessionEndEvaluator.Evaluate(_players.GetAllSnapshots(), _round, _runtimeMaximumRounds);
             if (_gameOverReason != GameOverReason.None) { _flow.EndGameFromSettlement(); return; }
+            _settlementCelebration?.Clear(); _racePresentation?.ClearSettlement();
             _flow.MarkSettlementComplete();
             var refresh = _rosterService.Refresh(_lastSettlement.ChampionId, new RaceSeed(unchecked(_raceDirector.CurrentPlan.Seed.Value + _round * 104729)));
             _racePresentation?.ApplyRoster(refresh.CurrentRoster);
@@ -364,6 +378,7 @@ namespace GroundChickenKing.UI
         private void HandleRestart()
         {
             if (_flow.CurrentState != GameFlowState.GameOver) return;
+            _settlementCelebration?.Clear(); _racePresentation?.ClearSettlement();
             _players.ResetJoinedCoins(_rules.InitialCoins); _round = 1; _gameOverReason = GameOverReason.None;
             _rosterService.Reset(InitialChickenIds); _racePresentation?.ApplyRoster(_rosterService.CurrentRoster);
             _settlementService = new SettlementService(_players); _raceDirector = new RaceDirector(_rosterService.CurrentRoster, RaceRules.FromConfig(_raceConfig));
@@ -462,6 +477,12 @@ namespace GroundChickenKing.UI
             var lines = new System.Collections.Generic.List<string> { UiTextCatalog.GameOverMessage(_gameOverReason, _runtimeMaximumRounds) };
             for (var i = 0; i < players.Length; i++) lines.Add(UiTextCatalog.Ranking(i + 1, players[i]));
             return string.Join("\n", lines);
+        }
+
+        private string DisplayName(string chickenId)
+        {
+            var definition = _rosterCatalog.Definitions.FirstOrDefault(item => item.StableId == chickenId);
+            return definition != null ? definition.DisplayName : chickenId;
         }
 
         public bool TryGetBetSnapshot(PlayerSeat seat, out BetSnapshot snapshot)

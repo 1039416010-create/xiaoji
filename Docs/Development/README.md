@@ -22,6 +22,7 @@
 | Phase 07 | 完整 UI、音频与展项运维 | 主菜单到 GameOver 全触控闭环 |
 | Phase 08 | 硬件、压力测试与发布 | 红外多点触控实机验收及 Windows Release |
 | Phase 09 | 场景、美术、UI 与角色表现 | GPT 生成美术接入并完成可展示视觉版本 |
+| Phase 10 | 沉浸式角色与动态结算 | 13 种程序化 3D 小鸡、下注热身、全屏与领奖台 |
 
 ## 阶段执行模板
 
@@ -47,6 +48,7 @@ Project Baseline
   -> Full UX + Operations
   -> Hardware Validation + Release
   -> Art Direction + Scene Polish
+  -> Immersive 3D Presentation + Podium Celebration
 ```
 
 ## 决策记录

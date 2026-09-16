@@ -9,6 +9,8 @@
 | `Assets/_Game/Art/UI/Generated/SPR_UI_WoodButton.png` | 九宫格按钮 | 2172×724 | 是 |
 | `Assets/_Game/Art/UI/Generated/SPR_UI_ParchmentPanel.png` | 九宫格面板 | 1774×887 | 是 |
 | `Assets/_Game/Art/UI/Generated/SPR_UI_IconAtlas.png` | 硬币/皇冠/终点旗/设置 | 2172×724 | 是 |
+| `Assets/_Game/Art/Environment/Generated/BG_SettlementPodium_v2.png` | 动态结算领奖台背景 | 1774×887 | 否 |
+| `Assets/_Game/Art/UI/Generated/SPR_CurryCutletAtlas_v2.png` | 四份鸡排饭横向图集 | 2048×1024 | 是 |
 
 ## 最终 Prompt
 
@@ -34,3 +36,10 @@
 
 完整结构化 Prompt 及约束由本次 Codex 任务记录保存；仓库内短版用于团队快速复现。
 
+### Phase 10 领奖台
+
+`A premium whimsical countryside chicken-racing award ceremony stage; centered three-level wooden podium, red curtains, golden spotlights, hay bales and edge confetti; exact 2:1, straight-on slightly elevated view, clean center for a real-time 3D champion; no chickens, food, people, text, logos or watermark.`
+
+### Phase 10 鸡排饭图集
+
+`Exactly four plated curry chicken cutlet rice meals in equal horizontal cells, playful garnish variations, warm hand-painted 3D animated-film game prop style, genuine transparent background; no chickens, faces, text, grid lines, logos or watermark.`

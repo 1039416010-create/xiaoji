@@ -8,8 +8,9 @@ namespace GroundChickenKing.Persistence
         public float MasterVolume = 0.8f;
         public float VisualIntensity = 1f;
         public int MaximumRounds = 20;
+        public bool Fullscreen = true;
 
-        public ExhibitSettings Copy() => new() { MasterVolume = MasterVolume, VisualIntensity = VisualIntensity, MaximumRounds = MaximumRounds };
+        public ExhibitSettings Copy() => new() { MasterVolume = MasterVolume, VisualIntensity = VisualIntensity, MaximumRounds = MaximumRounds, Fullscreen = Fullscreen };
 
         public void Sanitize()
         {
