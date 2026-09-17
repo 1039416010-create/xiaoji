@@ -23,6 +23,7 @@
 | Phase 08 | 硬件、压力测试与发布 | 红外多点触控实机验收及 Windows Release |
 | Phase 09 | 场景、美术、UI 与角色表现 | GPT 生成美术接入并完成可展示视觉版本 |
 | Phase 10 | 沉浸式角色与动态结算 | 13 种程序化 3D 小鸡、下注热身、全屏与领奖台 |
+| Phase 11 | 精品角色资产生产 | 13 套手工模型、共享 Generic 骨架与专属性格动画 |
 
 ## 阶段执行模板
 
@@ -49,6 +50,7 @@ Project Baseline
   -> Hardware Validation + Release
   -> Art Direction + Scene Polish
   -> Immersive 3D Presentation + Podium Celebration
+  -> Production Character Modeling + Rigging + Animation
 ```
 
 ## 决策记录

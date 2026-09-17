@@ -12,11 +12,24 @@ namespace GroundChickenKing.Chickens
         [SerializeField] private Chicken3DStage _immersiveStage;
         private RacePlan _plan;
         public int ControllerCount => _controllers?.Length ?? 0;
-        public void Configure(ChickenController[] controllers) => _controllers = controllers;
+        public void Configure(ChickenController[] controllers)
+        {
+            _controllers = controllers;
+            RebindImmersiveStage();
+        }
+
+        private void Awake() => RebindImmersiveStage();
+
         public void ConfigureImmersiveStage(Chicken3DStage immersiveStage)
         {
             _immersiveStage = immersiveStage;
-            _immersiveStage?.BindControllers(_controllers);
+            RebindImmersiveStage();
+        }
+
+        public void RebindImmersiveStage()
+        {
+            if (_immersiveStage != null && _controllers != null)
+                _immersiveStage.BindControllers(_controllers);
         }
         public void BindPlan(RacePlan plan)
         {

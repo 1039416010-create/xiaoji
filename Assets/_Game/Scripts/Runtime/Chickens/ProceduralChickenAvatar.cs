@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -19,6 +20,8 @@ namespace GroundChickenKing.Chickens
         private readonly Transform _leftPupil;
         private readonly Transform _rightPupil;
         private readonly Renderer[] _accentRenderers;
+        private readonly Renderer[] _renderers;
+        private readonly HashSet<int> _suppressedRendererIds = new();
         private readonly Vector3 _baseScale;
 
         public ProceduralChickenAvatar(Transform parent, Chicken3DStyle style, int renderLayer, Material body, Material accent, Material cream, Material dark, Material beak)
@@ -56,6 +59,7 @@ namespace GroundChickenKing.Chickens
             _accentRenderers = _root.GetComponentsInChildren<Renderer>(true)
                 .Where(renderer => renderer.sharedMaterial == accent)
                 .ToArray();
+            _renderers = _root.GetComponentsInChildren<Renderer>(true);
             _bodyPivot.localScale = _baseScale;
         }
 
@@ -68,7 +72,8 @@ namespace GroundChickenKing.Chickens
         {
             var showAccentDetails = state != ChickenVisualState.Celebrate;
             foreach (var accentRenderer in _accentRenderers)
-                accentRenderer.enabled = showAccentDetails;
+                if (!_suppressedRendererIds.Contains(accentRenderer.GetInstanceID()))
+                    accentRenderer.enabled = showAccentDetails;
             _root.localPosition = position;
             _root.localScale = Vector3.one * scale;
             var cycle = time * 7f * _style.Gait;
@@ -111,14 +116,14 @@ namespace GroundChickenKing.Chickens
                 case ChickenVisualState.Fall:
                     fall = -82f * Smooth(eventPhase);
                     stride = 30f * Mathf.Sin(eventPhase * Mathf.PI * 3f);
-                    wing = 65f * Mathf.Sin(eventPhase * Mathf.PI);
+                    wing = 18f * Mathf.Sin(eventPhase * Mathf.PI);
                     bob = -.42f * Smooth(eventPhase);
                     eyeOpen = Mathf.Lerp(1f, .12f, Smooth(eventPhase));
                     break;
                 case ChickenVisualState.Recover:
                     fall = Mathf.Lerp(-82f, 0f, Smooth(eventPhase));
                     stride = Mathf.Sin(eventPhase * Mathf.PI * 4f) * 18f;
-                    wing = Mathf.Lerp(55f, 0f, eventPhase);
+                    wing = Mathf.Lerp(18f, 0f, eventPhase);
                     bob = Mathf.Lerp(-.42f, 0f, Smooth(eventPhase));
                     eyeOpen = Mathf.Lerp(.12f, 1f, Smooth(eventPhase));
                     break;
@@ -129,7 +134,7 @@ namespace GroundChickenKing.Chickens
                     break;
                 case ChickenVisualState.Interfere:
                     stride *= .55f;
-                    wing = 72f * Mathf.Sin(Mathf.Clamp01(eventPhase) * Mathf.PI);
+                    wing = 18f * Mathf.Sin(Mathf.Clamp01(eventPhase) * Mathf.PI);
                     lean = 10f;
                     break;
                 case ChickenVisualState.Celebrate:
@@ -160,6 +165,23 @@ namespace GroundChickenKing.Chickens
             var look = state is ChickenVisualState.Fall or ChickenVisualState.Recover ? new Vector3(.08f, -.14f, 0f) : new Vector3(.08f, 0f, 0f);
             _leftPupil.localPosition = new Vector3(look.x, look.y, -.55f);
             _rightPupil.localPosition = new Vector3(look.x, look.y, .55f);
+            SuppressInvalidPlaceholderParts();
+        }
+
+        private void SuppressInvalidPlaceholderParts()
+        {
+            const float MaximumWorldSize = 4f;
+            foreach (var renderer in _renderers)
+            {
+                if (!renderer.enabled || _suppressedRendererIds.Contains(renderer.GetInstanceID()))
+                    continue;
+                var size = renderer.bounds.size;
+                if (Mathf.Max(size.x, Mathf.Max(size.y, size.z)) <= MaximumWorldSize)
+                    continue;
+                renderer.enabled = false;
+                _suppressedRendererIds.Add(renderer.GetInstanceID());
+                Debug.LogWarning($"Suppressed oversized procedural placeholder part: chicken={_style.Id}, part={renderer.name}, bounds={size}.");
+            }
         }
 
         private static void SetEyeOpen(Transform eye, Transform pupil, float amount)

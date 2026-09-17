@@ -26,6 +26,7 @@ namespace GroundChickenKing.Chickens
 
         public int StyleCount => Chicken3DStyleCatalog.All.Count;
         public string SettlementChampion => _settlementChampion;
+        public int BoundControllerCount => _controllers.Length;
 
         public void Configure(RawImage warmupOutput, RawImage bettingOutput, RawImage raceOutput, RawImage settlementOutput, Material materialTemplate)
         {
@@ -143,13 +144,19 @@ namespace GroundChickenKing.Chickens
             _camera.backgroundColor = new Color(0f, 0f, 0f, 0f);
             _camera.cullingMask = 1 << RenderLayer;
             _camera.allowHDR = false;
-            _camera.allowMSAA = true;
+            _camera.allowMSAA = false;
             _camera.depth = -20f;
+
+            if (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null)
+            {
+                _camera.enabled = false;
+                return;
+            }
 
             _renderTexture = new RenderTexture(1600, 800, 24, RenderTextureFormat.ARGB32)
             {
                 name = "RT_Chicken3DStage",
-                antiAliasing = 4,
+                antiAliasing = 1,
                 filterMode = FilterMode.Bilinear,
                 wrapMode = TextureWrapMode.Clamp,
             };

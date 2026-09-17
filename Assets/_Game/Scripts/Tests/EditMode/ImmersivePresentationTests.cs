@@ -51,6 +51,20 @@ namespace GroundChickenKing.Tests.EditMode
         }
 
         [Test]
+        public void ChickenRacePresenter_Awake_RebindsFiveControllersToImmersiveStage()
+        {
+            var scene = EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+            var presenter = scene.GetRootGameObjects()
+                .SelectMany(root => root.GetComponentsInChildren<ChickenRacePresenter>(true))
+                .Single();
+            var stage = Find(scene, "ImmersiveChickenStage").GetComponent<Chicken3DStage>();
+
+            presenter.RebindImmersiveStage();
+
+            Assert.That(stage.BoundControllerCount, Is.EqualTo(5));
+        }
+
+        [Test]
         public void SettlementScene_UsesPodiumBackgroundMealsAndCelebrationView()
         {
             var scene = EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
