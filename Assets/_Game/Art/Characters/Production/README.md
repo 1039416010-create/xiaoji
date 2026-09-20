@@ -2,6 +2,8 @@
 
 本目录保存正式角色生产源文件。当前版本是 Phase 11A 的首轮工程灰模，用于验证共享骨架、体型差异、配件结构、蒙皮和 Unity Generic Rig 导入；它不是最终细雕模型。
 
+最新工作稿位于 **`VisualV3/`**，完成外形、眼睛/眼睑、羽片和配饰调整，提供烘焙材质图集与实际 Unity 导入后的检查用预制体。详情和未完成项见 `VisualV3/README.md`；下文保留前两版的复现方式。
+
 ## 目录
 
 - `Blender/build_phase11a_benchmark.py`：可重复生成灰模、骨架、Blocking 动作、预览图和 FBX。

@@ -1,0 +1,61 @@
+{
+  "status": "PASS_ENGINEERING_CHECKS_ONLY",
+  "characters": [
+    {
+      "character": "flash",
+      "bones": 46,
+      "height_m": 1.08,
+      "lod_triangles": [
+        29732,
+        17242,
+        8470
+      ],
+      "expression_shapes": 9,
+      "clips": 11,
+      "sampled_poses": 33,
+      "minimum_sampled_z": 0.002,
+      "maximum_sampled_extent": 1.0837,
+      "fbx_roundtrip": "PASS"
+    },
+    {
+      "character": "chubby",
+      "bones": 46,
+      "height_m": 1.0,
+      "lod_triangles": [
+        34388,
+        19942,
+        9797
+      ],
+      "expression_shapes": 9,
+      "clips": 11,
+      "sampled_poses": 33,
+      "minimum_sampled_z": 0.002,
+      "maximum_sampled_extent": 1.0268,
+      "fbx_roundtrip": "PASS"
+    },
+    {
+      "character": "slacker",
+      "bones": 46,
+      "height_m": 1.0,
+      "lod_triangles": [
+        34556,
+        20040,
+        9848
+      ],
+      "expression_shapes": 9,
+      "clips": 11,
+      "sampled_poses": 33,
+      "minimum_sampled_z": 0.002,
+      "maximum_sampled_extent": 1.0252,
+      "fbx_roundtrip": "PASS"
+    }
+  ],
+  "limitations": [
+    "No Unity import verification in this check",
+    "Contact penetration and foot sliding require animation refinement",
+    "UVs automatically packed; manual art review outstanding",
+    "Mask G is constant 1, not baked occlusion",
+    "Normal uses procedural surface bump, not a high-poly sculpt bake",
+    "This is procedural WIP, not final handcrafted retopology"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+    "unityVersion": "6000.3.24f1",
+    "characters": [
+        {
+            "id": "flash",
+            "clips": 11,
+            "shapes": 9,
+            "lodTriangles": [
+                29732,
+                17242,
+                8470
+            ],
+            "validGenericAvatar": true,
+            "applyRootMotion": false
+        },
+        {
+            "id": "chubby",
+            "clips": 11,
+            "shapes": 9,
+            "lodTriangles": [
+                34388,
+                19942,
+                9797
+            ],
+            "validGenericAvatar": true,
+            "applyRootMotion": false
+        },
+        {
+            "id": "slacker",
+            "clips": 11,
+            "shapes": 9,
+            "lodTriangles": [
+                34556,
+                20040,
+                9848
+            ],
+            "validGenericAvatar": true,
+            "applyRootMotion": false
+        }
+    ],
+    "scope": "Isolated WIP prefab import; no gameplay, projection, or final animation acceptance"
+}
