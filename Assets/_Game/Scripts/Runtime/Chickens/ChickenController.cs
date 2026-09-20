@@ -178,10 +178,26 @@ namespace GroundChickenKing.Chickens
 
         private void SetState(ChickenVisualState state)
         {
+            if (_state == state)
+                return;
+            var previousState = _state;
             _state = state;
             if (_animator == null || _animator.runtimeAnimatorController == null) return;
             var hash = AnimatorHash(state);
-            if (_animator.HasState(0, hash)) _animator.CrossFade(hash, 0.08f, 0);
+            if (!_animator.HasState(0, hash))
+                return;
+            var offset = 0f;
+            if (ChickenAnimationTransitionPolicy.ShouldPreservePhase(previousState, state))
+            {
+                var current = _animator.GetCurrentAnimatorStateInfo(0);
+                if (!float.IsNaN(current.normalizedTime) && !float.IsInfinity(current.normalizedTime))
+                    offset = Mathf.Repeat(current.normalizedTime, 1f);
+            }
+            _animator.CrossFade(
+                hash,
+                ChickenAnimationTransitionPolicy.GetDuration(previousState, state),
+                0,
+                offset);
         }
 
         private void RestoreVisualPose(bool restoreScale = true)

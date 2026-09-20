@@ -1,0 +1,7 @@
+Use case: stylized-concept
+Asset type: production key-pose sheet for a 2D side-view racing game
+Input image: CH_flash_turnaround_v1.png is the authoritative identity, proportions, palette, material and accessory reference.
+Primary request: one clean 4 by 3 grid with twelve full-body left-facing side-view keys: idle, warmup, run contact, run passing, run airborne, sprint, slowdown, trip/fall, recover, turn, interfere and celebrate.
+Identity constraints: preserve the slim tall golden chicken, long orange legs, swept crest, cream layered chest, blue lightning wing mark, red woven headband and two tails, arched golden tail and tapered orange beak.
+Style: polished family-friendly animated-film character art converted into high-quality 2D game sprite illustration, soft layered feathers and crisp silhouettes.
+Output constraints: consistent scale; standing feet share a baseline; genuinely transparent background; no text, labels, grid, scenery, floor, shadows, watermark, redesign, palette changes, extra clothing, cropped parts or non-side views.

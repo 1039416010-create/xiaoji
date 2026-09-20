@@ -1,0 +1,7 @@
+Use case: stylized-concept
+Asset type: master side-view character sprite for a 2D racing game
+Input image: CH_flash_turnaround_v1.png is the authoritative identity, proportions, palette, feather treatment and accessory reference.
+Primary request: exactly one full-body Flash chicken in strict left-facing orthographic side view, neutral standing pose with both feet on one baseline and wings resting naturally, prepared for layer separation and 2D skeletal rigging.
+Identity constraints: slim tall golden chicken; long orange scaled legs and readable chicken feet; swept crest; large brown eye; tapered orange beak; cream layered chest; layered golden wing and arched tail; integrated blue lightning wing mark; red woven headband, knot and exactly two fabric tails.
+Style: polished family-friendly animated-film character art adapted into a premium 2D sprite with crisp silhouette and controlled soft shading.
+Output constraints: genuinely transparent background and clean alpha; one centered character; generous padding; no text, ground, shadow, scenery, border, watermark, duplicates, extra limbs, redesign, palette change, added clothing, perspective view or cropping.
