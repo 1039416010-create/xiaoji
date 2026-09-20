@@ -1,0 +1,6 @@
+Use case: identity-preserve
+Asset type: exploded layered sprite-parts sheet for 2D skeletal animation
+Input image: CH_flash_side_master_v1.png is the exact identity and rendering anchor.
+Primary request: a clean 4 by 4 sheet in this fixed order: torso; head and neck; near wing with lightning; far wing; tail; near upper leg; near lower leg and foot; far complete leg and foot; eye white; iris and pupil; upper and lower eyelids; eyebrow; separated upper and lower beak; crest; headband and knot; exactly two ribbon tails.
+Layer constraints: reconstruct hidden attachment areas, preserve relative scale and strict left-facing side view, and keep each component isolated with transparent padding.
+Output constraints: genuinely transparent background; no assembled character, text, labels, grid, floor, shadow, scenery, watermark, duplicate components, redesign, extra accessory, colored speckles or glow.

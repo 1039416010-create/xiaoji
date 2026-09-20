@@ -158,6 +158,7 @@ namespace GroundChickenKing.Chickens
         private void ApplyFallbackPose(int eventIndex)
         {
             if (_visualRoot == null || eventIndex < 0) return;
+            if (_animator != null && _animator.runtimeAnimatorController != null) return;
             var raceEvent = _plan.Events[eventIndex];
             var phase = Mathf.InverseLerp(raceEvent.StartTime, raceEvent.EndTime, _elapsed);
             switch (raceEvent.Type)

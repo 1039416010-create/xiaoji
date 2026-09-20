@@ -44,9 +44,13 @@
 ## 当前检查点
 
 - 闪电鸡动作关键姿势表与侧视透明母版已生成并保存到 `Production/2D/Flash/`。
-- 姿势表是美术参考，未直接作为运行图集。
-- 已新增 `Chicken2DVisualDefinition` 与统一过渡策略。
-- Unity EditMode 过渡测试 7/7 通过。
+- 已从拆件参考图自动清除透明区散点并输出 16 份独立 Sprite；脚掌缺件已依据确认母版补齐。
+- 已建立 12 层运行时 Prefab、Animator Override、角色定义及 11 个动作片段。
+- Idle、Run、Sprint、Fall、Recover 五组 Unity 实际渲染预览已通过人工检查，倒地姿势不会被裁切。
+- Run/Sprint 只包含零值 X 曲线，比赛前进仍完全由 `ChickenController.NormalizedProgress` 驱动。
+- 相同状态不重启、Run/Sprint 保留周期相位及状态专属过渡已接入运行控制器。
+- Flash 2D 专项 EditMode 4/4、完整 EditMode 回归 76/76 通过。
+- 11A 尚未退出：下一步制作胖墩和摸鱼鸡两个体型标杆，并进行五鸡同屏与 2:1 画面验收。
 
 ## 11A 退出条件
 

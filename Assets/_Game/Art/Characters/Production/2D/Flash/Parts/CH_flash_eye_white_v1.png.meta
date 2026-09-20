@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0a062498f85317d4c8cdd93d16a4578a
+guid: 4a0ee44efeb2e41459bd61c1d17fb8f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4438539090145516752
-    second: CH_flash_side_master_v1_0
+      213: 5769749186024646993
+    second: CH_flash_eye_white_v1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,25 +113,25 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CH_flash_side_master_v1_0
+      name: CH_flash_eye_white_v1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1145
-        height: 1374
+        width: 165
+        height: 137
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData:
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0dc1fcd39cbd89d30800000000000000
-      internalID: 4438539090145516752
+      spriteID: 1592914b054421050800000000000000
+      internalID: 5769749186024646993
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     outline: []

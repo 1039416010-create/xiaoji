@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0a062498f85317d4c8cdd93d16a4578a
+guid: c1f44ffb3098d5e4e9041ec789f5896d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4438539090145516752
-    second: CH_flash_side_master_v1_0
+      213: 3682626101549447568
+    second: CH_flash_ribbons_v1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.5, y: 0.5}
+  spritePivot: {x: 0.1, y: 0.5}
   spritePixelsToUnits: 600
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,25 +113,25 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CH_flash_side_master_v1_0
+      name: CH_flash_ribbons_v1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1145
-        height: 1374
+        width: 296
+        height: 232
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData:
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0dc1fcd39cbd89d30800000000000000
-      internalID: 4438539090145516752
+      spriteID: 099bf6f8de05b1330800000000000000
+      internalID: 3682626101549447568
       vertices: []
-      indices:
+      indices: 
       edges: []
       weights: []
     outline: []

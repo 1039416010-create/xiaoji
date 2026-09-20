@@ -1,0 +1,150 @@
+{
+    "Source": "Assets/_Game/Art/Characters/Production/2D/Flash/PartsReference/CH_flash_parts_sheet_v1.png",
+    "AlphaThreshold": 18,
+    "Parts": [
+        {
+            "Name": "torso",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_torso_v1.png",
+            "Width": 276,
+            "Height": 296,
+            "ComponentsKept": 1,
+            "ComponentsFound": 2,
+            "RemovedNonTransparentPixels": 3730
+        },
+        {
+            "Name": "head_neck",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_head_neck_v1.png",
+            "Width": 286,
+            "Height": 280,
+            "ComponentsKept": 1,
+            "ComponentsFound": 1,
+            "RemovedNonTransparentPixels": 5079
+        },
+        {
+            "Name": "wing_near",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_wing_near_v1.png",
+            "Width": 294,
+            "Height": 252,
+            "ComponentsKept": 1,
+            "ComponentsFound": 1,
+            "RemovedNonTransparentPixels": 5563
+        },
+        {
+            "Name": "wing_far",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_wing_far_v1.png",
+            "Width": 266,
+            "Height": 252,
+            "ComponentsKept": 1,
+            "ComponentsFound": 1,
+            "RemovedNonTransparentPixels": 3025
+        },
+        {
+            "Name": "tail",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_tail_v1.png",
+            "Width": 279,
+            "Height": 250,
+            "ComponentsKept": 1,
+            "ComponentsFound": 2,
+            "RemovedNonTransparentPixels": 10501
+        },
+        {
+            "Name": "upper_leg_near",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_upper_leg_near_v1.png",
+            "Width": 155,
+            "Height": 214,
+            "ComponentsKept": 1,
+            "ComponentsFound": 3,
+            "RemovedNonTransparentPixels": 13876
+        },
+        {
+            "Name": "lower_leg_foot_near",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_lower_leg_foot_near_v1.png",
+            "Width": 1145,
+            "Height": 1374,
+            "ComponentsKept": 1,
+            "ComponentsFound": 1,
+            "RemovedNonTransparentPixels": 0
+        },
+        {
+            "Name": "leg_far",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_leg_far_v1.png",
+            "Width": 155,
+            "Height": 288,
+            "ComponentsKept": 1,
+            "ComponentsFound": 3,
+            "RemovedNonTransparentPixels": 8758
+        },
+        {
+            "Name": "eye_white",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_eye_white_v1.png",
+            "Width": 165,
+            "Height": 137,
+            "ComponentsKept": 1,
+            "ComponentsFound": 4,
+            "RemovedNonTransparentPixels": 16008
+        },
+        {
+            "Name": "iris_pupil",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_iris_pupil_v1.png",
+            "Width": 124,
+            "Height": 128,
+            "ComponentsKept": 1,
+            "ComponentsFound": 3,
+            "RemovedNonTransparentPixels": 3077
+        },
+        {
+            "Name": "eyelids",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_eyelids_v1.png",
+            "Width": 275,
+            "Height": 321,
+            "ComponentsKept": 2,
+            "ComponentsFound": 2,
+            "RemovedNonTransparentPixels": 4715
+        },
+        {
+            "Name": "brow",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_brow_v1.png",
+            "Width": 263,
+            "Height": 113,
+            "ComponentsKept": 1,
+            "ComponentsFound": 2,
+            "RemovedNonTransparentPixels": 10497
+        },
+        {
+            "Name": "beaks",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_beaks_v1.png",
+            "Width": 202,
+            "Height": 218,
+            "ComponentsKept": 2,
+            "ComponentsFound": 3,
+            "RemovedNonTransparentPixels": 3604
+        },
+        {
+            "Name": "crest",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_crest_v1.png",
+            "Width": 306,
+            "Height": 271,
+            "ComponentsKept": 1,
+            "ComponentsFound": 1,
+            "RemovedNonTransparentPixels": 6300
+        },
+        {
+            "Name": "headband",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_headband_v1.png",
+            "Width": 297,
+            "Height": 140,
+            "ComponentsKept": 1,
+            "ComponentsFound": 3,
+            "RemovedNonTransparentPixels": 5844
+        },
+        {
+            "Name": "ribbons",
+            "AssetPath": "Assets/_Game/Art/Characters/Production/2D/Flash/Parts/CH_flash_ribbons_v1.png",
+            "Width": 296,
+            "Height": 232,
+            "ComponentsKept": 2,
+            "ComponentsFound": 2,
+            "RemovedNonTransparentPixels": 3489
+        }
+    ]
+}
