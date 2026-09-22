@@ -60,7 +60,11 @@
 - 概念锁定版专项 EditMode 3/3 通过：只含一个 SpriteRenderer、直接引用已确认母版、不缩放变形、无赛道方向位移。
 - 原画连帧专项 EditMode 3/3、完整 EditMode 回归 82/82 通过；正式入口为 `CFG_Chicken2D_flash_Frames.asset`。
 - 胖墩与摸鱼鸡专项 EditMode 6/6、完整 EditMode 回归 88/88 通过；正式入口分别为 `CFG_Chicken2D_chubby_Frames.asset` 与 `CFG_Chicken2D_slacker_Frames.asset`。
-- 11A 尚未退出：下一步进行五鸡同屏、排序、脚底基线与 1920×960 画面验收。
+- 已建立 `SCN_Phase11A_2DLineup.unity` 和可复用五赛道样板 Prefab，以闪电鸡、胖墩、摸鱼鸡交错复用形成五个体型压力位；该重复仅用于同屏验证，不改变正式阵容唯一性规则。
+- 三只正式 2D Prefab 已统一使用各自独立的 URP 2D Unlit 材质，修复批处理渲染只显示白色剪影的问题，同时保持 Animator 换帧能力。
+- 1920×960 实际渲染图已检查：五只角色完整可见、透明边缘可读、五条脚底基线一致、Sprite 排序唯一、终点与画面安全边距无裁切。
+- 五鸡同屏专项 EditMode 3/3、完整 EditMode 回归 91/91 通过。
+- Phase 11A 退出条件已满足；下一入口为按已通过模板制作其余十只角色的完整角色 Sprite 连帧。
 
 ## 11A 退出条件
 
@@ -68,5 +72,7 @@
 - 三只标杆角色可在 Unity 播放 Idle、Warmup、Run、Sprint、Fall、Recover。
 - Run/Sprint 切换无明显脚步跳变；Fall/Recover 不重复重启。
 - 五鸡同屏时透明边缘、排序、脚底基线和 2:1 画面可读性通过。
+
+状态：已满足。实机投影和 Windows Release 属于 Phase 11 全角色完成后的最终发布门禁。
 
 未满足以上条件前，不宣告十三只正式角色动画完成。

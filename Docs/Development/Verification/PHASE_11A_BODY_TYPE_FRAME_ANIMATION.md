@@ -37,7 +37,20 @@
 - 检查内容：帧数量与尺寸、透明 Sprite 导入、Run 原画顺序、无位移曲线、单
   SpriteRenderer、Prefab 无缩放、Root Motion 关闭、角色定义有效。
 
-## 待完成
+## 五鸡同屏收尾
 
-Phase 11A 的剩余门禁是五鸡同屏、Sprite 排序、脚底基线和 1920×960 画面可读性验收。
-红外触控和 Windows Release 仍属于后续实体设备/发布验收，不在本次美术连帧检查范围内。
+五鸡样板场景、Prefab 和 1920×960 渲染图已完成，专项 EditMode 3/3、全项目 EditMode
+91/91 通过。三只正式角色使用独立 URP 2D Unlit 材质，五个压力位的 Sprite 排序唯一，
+可见轮廓底部与赛道基线误差不超过 0.001 世界单位。
+
+样板重复使用闪电鸡、胖墩、摸鱼鸡来覆盖瘦高、宽体和松垮三种体型极值，不进入正式阵容，
+不改变“每局五只 ID 唯一”的业务规则。
+
+证据：
+
+- `Assets/_Game/Scenes/SCN_Phase11A_2DLineup.unity`
+- `Assets/_Game/Prefabs/Race/PF_Race_Phase11A_2DLineup.prefab`
+- `Assets/_Game/Art/Characters/Production/2D/Phase11A/Preview/PHASE11A_2D_Lineup_1920x960.png`
+
+Phase 11A 退出条件已满足。红外触控、实体投影和 Windows Release 仍属于全角色制作完成后的
+最终设备/发布验收，不在本次样板场景范围内。
