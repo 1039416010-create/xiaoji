@@ -47,10 +47,14 @@
 - 原拆件重绘方案已被用户否决：其拼合比例、位置和整体轮廓偏离已确认概念图，不得继续复制到其他角色。
 - 闪电鸡已改为“概念锁定版”：运行时仅引用已确认的完整侧视母版，不重画、不补件、不重新拼合。
 - 已建立单 Sprite 正式 Prefab、Animator Override、角色定义及 11 个整图动作片段；静止造型与母版为同一 Sprite 资源。
-- 当前 Run/Sprint 通过完整角色的重心起伏和轻微旋转表达节奏，不改变头身、腿长、尾羽或配饰比例。
+- 完整母版摆动版只保留为静态回退方案，不作为最终 Run/Sprint 表现。
+- 用户随后确认动作表中的迈左腿、迈右腿、腾空、跌倒、起身等均为可直接使用的动作原画；正式表现已改为 Sprite 连帧，不再以整图摆动模拟奔跑。
+- 闪电鸡 12 张动作原画已按固定 362×362 画布无损切帧，只清除透明区离散噪点；所有帧保持动作表中的原始位置、比例和共同基线。
+- Run 使用 `run_contact → run_passing → run_airborne → run_passing` 循环；Sprint、Stop、Fall、Recover、Turn、Interfere、Celebrate 和 Lose 均由对应原画帧直接播放。
 - Run/Sprint 只包含零值 X 曲线，比赛前进仍完全由 `ChickenController.NormalizedProgress` 驱动。
 - 相同状态不重启、Run/Sprint 保留周期相位及状态专属过渡已接入运行控制器。
 - 概念锁定版专项 EditMode 3/3 通过：只含一个 SpriteRenderer、直接引用已确认母版、不缩放变形、无赛道方向位移。
+- 原画连帧专项 EditMode 3/3、完整 EditMode 回归 82/82 通过；正式入口为 `CFG_Chicken2D_flash_Frames.asset`。
 - 11A 尚未退出：下一步制作胖墩和摸鱼鸡两个体型标杆，并进行五鸡同屏与 2:1 画面验收。
 
 ## 11A 退出条件
