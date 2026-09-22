@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f717852e408a4f64986b932e2b8c73b1, type: 3}
+  m_Name: CFG_Chicken2D_chubby_Frames
+  m_EditorClassIdentifier: GroundChickenKing.Runtime::GroundChickenKing.Chickens.Chicken2DVisualDefinition
+  _chickenId: chicken-chubby
+  _prefab: {fileID: 4300388087900835586, guid: c6897f31c0c46ae49b3fb066c675b431, type: 3}
+  _animatorOverride: {fileID: 22100000, guid: 1df9b6137aefb6947a80fb98607185a4, type: 2}
+  _portrait: {fileID: 21300000, guid: ed87c9745c65d4e4bb5fd423599d370c, type: 3}
+  _stageScale: 1
+  _footBaseline: 0
