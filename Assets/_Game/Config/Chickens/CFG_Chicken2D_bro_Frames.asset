@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f717852e408a4f64986b932e2b8c73b1, type: 3}
+  m_Name: CFG_Chicken2D_bro_Frames
+  m_EditorClassIdentifier: GroundChickenKing.Runtime::GroundChickenKing.Chickens.Chicken2DVisualDefinition
+  _chickenId: chicken-bro
+  _prefab: {fileID: 4120957694190648315, guid: d67c4fcadafb4b54eaebca0eebc04d6b, type: 3}
+  _animatorOverride: {fileID: 22100000, guid: 72baed3e65f3c9b468679d1bd73a7a78, type: 2}
+  _portrait: {fileID: 21300000, guid: c7f0cbedcb510dd40a6c7b95a5829ca3, type: 3}
+  _stageScale: 1
+  _footBaseline: 0

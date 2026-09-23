@@ -65,6 +65,10 @@
 - 1920×960 实际渲染图已检查：五只角色完整可见、透明边缘可读、五条脚底基线一致、Sprite 排序唯一、终点与画面安全边距无裁切。
 - 五鸡同屏专项 EditMode 3/3、完整 EditMode 回归 91/91 通过。
 - Phase 11A 退出条件已满足；下一入口为按已通过模板制作其余十只角色的完整角色 Sprite 连帧。
+- 鸡哥、鸡队长、小笼包、幸运鸡、忍者鸡、火箭鸡、学霸鸡、瞌睡鸡、雷鸣鸡、豆丁已全部从各自确认的动作姿势表提取为 384×512 透明固定画布整鸡帧；不拆件、不镜像、不缩放、不重画。
+- 十只角色各有 13 张正式帧和 11 个 Animator 状态，Run 只在原画的迈步/奔跑两格之间交替；Sprint、Stop、Fall、Recover、Turn、Interfere、Celebrate、Lose 均直接使用对应动作原画。
+- 十只角色各自使用独立 URP 2D Unlit 材质、单 SpriteRenderer Prefab、Animator Override 与 `Chicken2DVisualDefinition`；十三个正式 2D 角色 ID 已验证唯一。
+- 剩余阵容专项 EditMode 31/31、完整 EditMode 回归 122/122 通过；下一入口为十三只全阵容同屏、状态切换与最终 Windows Release 验收。
 
 ## 11A 退出条件
 

@@ -89,6 +89,67 @@ SLACKER = CharacterSheet(
 )
 
 
+STANDARD_ACTION_POSES = {
+    "idle": 0,
+    "warmup": 1,
+    "run_contact": 2,
+    "run_passing": 3,
+    "run_airborne": 3,
+    "sprint": 3,
+    "slowdown": 4,
+    "fall": 5,
+    "recover": 6,
+    "turn": 7,
+    "interfere": 8,
+    "celebrate": 9,
+    "lose": 10,
+}
+
+# The approved Phase 11 action sheets share the same four-column layout. The
+# two-pixel separators are deliberately excluded so no grid line enters a
+# character frame. Row heights differ because the final row reserves more room
+# for the expression reference cell.
+STANDARD_ACTION_CELLS = (
+    (3, 3, 379, 337),
+    (387, 3, 763, 337),
+    (771, 3, 1147, 337),
+    (1155, 3, 1533, 337),
+    (3, 345, 379, 647),
+    (387, 345, 763, 647),
+    (771, 345, 1147, 647),
+    (1155, 345, 1533, 647),
+    (3, 662, 379, 1021),
+    (387, 662, 763, 1021),
+    (771, 662, 1147, 1021),
+)
+
+
+def standard_action_sheet(key: str) -> CharacterSheet:
+    return CharacterSheet(
+        key=key,
+        source_name=f"CH_{key}_pose_sheet_v1.png",
+        cells=STANDARD_ACTION_CELLS,
+        poses=STANDARD_ACTION_POSES,
+    )
+
+
+REMAINING_ROSTER = tuple(
+    standard_action_sheet(key)
+    for key in (
+        "bro",
+        "captain",
+        "dumpling",
+        "lucky",
+        "ninja",
+        "rocket",
+        "scholar",
+        "sleepy",
+        "thunder",
+        "tiny",
+    )
+)
+
+
 def fit_background(rgb: np.ndarray) -> np.ndarray:
     """Fit the sheet's smooth neutral matte from clean edge samples."""
     height, width, _ = rgb.shape
@@ -140,15 +201,23 @@ def largest_component(mask: np.ndarray) -> np.ndarray:
     return output
 
 
-def extract_character(cell: Image.Image) -> Image.Image:
+def extract_character(cell: Image.Image, conservative_matte: bool) -> Image.Image:
     rgb = np.asarray(cell.convert("RGB"), dtype=np.float32)
     background = fit_background(rgb)
     distance = np.linalg.norm(rgb - background, axis=2)
     chroma = rgb.max(axis=2) - rgb.min(axis=2)
     strength = np.maximum(distance, chroma * 0.72)
-    alpha = np.clip((strength - 6.0) * (255.0 / 22.0), 0.0, 255.0)
+    if conservative_matte:
+        alpha = np.clip((strength - 8.0) * (255.0 / 28.0), 0.0, 255.0)
+        core_threshold = 82.0
+    else:
+        alpha = np.clip((strength - 6.0) * (255.0 / 22.0), 0.0, 255.0)
+        core_threshold = 42.0
 
-    core = largest_component(alpha >= 42.0)
+    # Generated concept sheets contain subtle compression/grain in the neutral
+    # studio background. A conservative opaque-core threshold prevents that
+    # texture from becoming connected matte islands around dark silhouettes.
+    core = largest_component(alpha >= core_threshold)
     # Keep soft feather edges adjacent to the main opaque character.
     expanded = core.copy()
     for _ in range(3):
@@ -157,15 +226,20 @@ def extract_character(cell: Image.Image) -> Image.Image:
         expanded[:, 1:] |= expanded[:, :-1]
         expanded[:, :-1] |= expanded[:, 1:]
     alpha *= expanded
-    alpha[alpha < 10.0] = 0.0
+    alpha[alpha < (24.0 if conservative_matte else 10.0)] = 0.0
 
     # The concept sheets include a neutral floor contact shadow. It is not part
     # of the character and would otherwise form a pale stripe across a race lane.
     yy = np.arange(rgb.shape[0])[:, None]
-    floor_matte = (
-        (yy >= int(rgb.shape[0] * 0.84))
-        & (chroma < 25.0)
-    )
+    if conservative_matte:
+        brightness = rgb.mean(axis=2)
+        floor_matte = (
+            (yy >= int(rgb.shape[0] * 0.84))
+            & (chroma < 65.0)
+            & (brightness < 195.0)
+        )
+    else:
+        floor_matte = (yy >= int(rgb.shape[0] * 0.84)) & (chroma < 25.0)
     alpha[floor_matte] = 0.0
 
     # Remove the neutral matte colour from soft feather-edge pixels without
@@ -208,7 +282,10 @@ def extract_sheet(spec: CharacterSheet) -> None:
     sheet = Image.open(source).convert("RGB")
     extracted: dict[int, Image.Image] = {}
     for index in sorted(set(spec.poses.values())):
-        extracted[index] = place_on_canvas(extract_character(sheet.crop(spec.cells[index])))
+        conservative_matte = spec in REMAINING_ROSTER
+        extracted[index] = place_on_canvas(
+            extract_character(sheet.crop(spec.cells[index]), conservative_matte)
+        )
     for pose_name, index in spec.poses.items():
         output = frames_dir / f"CH_{spec.key}_{pose_name}_v1.png"
         extracted[index].save(output, optimize=True)
@@ -218,6 +295,8 @@ def extract_sheet(spec: CharacterSheet) -> None:
 def main() -> None:
     extract_sheet(CHUBBY)
     extract_sheet(SLACKER)
+    for spec in REMAINING_ROSTER:
+        extract_sheet(spec)
 
 
 if __name__ == "__main__":

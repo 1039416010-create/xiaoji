@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f717852e408a4f64986b932e2b8c73b1, type: 3}
+  m_Name: CFG_Chicken2D_scholar_Frames
+  m_EditorClassIdentifier: GroundChickenKing.Runtime::GroundChickenKing.Chickens.Chicken2DVisualDefinition
+  _chickenId: chicken-scholar
+  _prefab: {fileID: 4114207640034726095, guid: 88d043dd1f1fdd2499c15fd5ca7dea21, type: 3}
+  _animatorOverride: {fileID: 22100000, guid: 73107b3ce5069fd42adce8cf9eff9590, type: 2}
+  _portrait: {fileID: 21300000, guid: 4dfe5636826964b43a06a26d39a777e6, type: 3}
+  _stageScale: 1
+  _footBaseline: 0
